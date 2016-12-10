@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/goods-service-dbScripts/goods-share-db.iml" filepath="$PROJECT_DIR$/goods-service-dbScripts/goods-share-db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/goods-share-service.iml" filepath="$PROJECT_DIR$/goods-share-service.iml" />
+    </modules>
+  </component>
+</project>
+

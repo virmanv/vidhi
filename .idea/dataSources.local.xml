@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - g4odb@localhost" uuid="287e0d9b-ba81-4b4b-9627-c8dbd18e2478">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>g4odb.*</schema-pattern>
+      <default-schemas>g4odb.*</default-schemas>
+    </data-source>
+  </component>
+</project>

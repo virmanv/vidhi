@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+	       http://www.springframework.org/schema/beans
+	       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass"
+                  value="${JDBC_DRIVER}"/>
+        <property name="jdbcUrl"
+                  value="${JDBC_URL}?useUnicode=true&amp;connectionCollation=utf8_unicode_ci&amp;characterSetResults=utf8&amp;characterEncoding=utf8"/>
+        <property name="user"
+                  value="${JDBC_USERNAME}"/>
+        <property name="password"
+                  value="${JDBC_PASSWORD}"/>
+
+        <!-- these are C3P0 properties http://www.mchange.com/projects/c3p0/#configuration_properties-->
+        <property name="acquireIncrement"
+                  value="5"/>
+        <property name="initialPoolSize"
+                  value="25"/>
+        <property name="minPoolSize"
+                  value="15"/>
+        <property name="maxPoolSize"
+                  value="100"/>
+        <property name="maxIdleTime"
+                  value="3600"/>
+    </bean>
+
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="ds"/>
+    </bean>
+
+    <bean id="namedParameterJdbcTemplate"
+          class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="ds"/>
+    </bean>
+
+    <!--<bean id="sql_entries"-->
+    <!--class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
+    <!--<property email="locations">-->
+    <!--<list>-->
+    <!--<value>classpath*:sql_entries.properties</value>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
+<bean id="keyHolderFactory" class="com.gold4old.infrastructure.sql.KeyHolderFactoryImpl"/>
+
+</beans>

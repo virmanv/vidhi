@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://cxf.apache.org/jaxrs
+           http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <jaxrs:server id="healthcheckApi" address="/api/v1">
+        <jaxrs:serviceBeans>
+            <ref bean="healthcheckApiImpl"/>
+            <ref bean = "userDetailsApi"/>
+            <ref bean="loginApi"/>
+        </jaxrs:serviceBeans>
+        <jaxrs:providers>
+            <ref bean="jsonProvider"/>
+        </jaxrs:providers>
+    </jaxrs:server>
+    <bean id="healthcheckApiImpl" class="com.gold4old.Api.HealthCheckApiImpl"/>
+    <bean id ="userDetailsApi" class="com.gold4old.Api.RegistrationApiImpl"/>
+    <bean id="jsonProvider"
+          class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+    <bean id ="userDetailsRepository" class="com.gold4old.infrastructure.user.UserDetailsRepositoryImpl"/>
+    <bean id="userRowMapper" class="com.gold4old.infrastructure.user.UserRowMapper"/>
+    <bean id ="loginApplication" class="com.gold4old.application.LoginApplicationImpl"/>
+    <bean id ="loginApi" class="com.gold4old.Api.LoginApiImpl"/>
+    <bean id="registrationApplication" class="com.gold4old.application.RegistrationApplicationImpl"/>
+</beans>
