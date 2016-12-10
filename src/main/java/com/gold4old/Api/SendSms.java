@@ -54,7 +54,7 @@ public class SendSms {
             sb.append("<validityperiod>0</validityperiod>");
             sb.append("</entries>");
             sb.append("</senddata>");
-            String result =  api.send_STR_STR("vidhivirmani_IND","vidhi1234", String.valueOf(sb));
+            String result =  api.send_STR_STR("","", String.valueOf(sb));
             System.out.println("result"+ result);
         } catch (Exception e) {
             e.printStackTrace();
